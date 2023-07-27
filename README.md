@@ -12,7 +12,7 @@ To use NView simply create a new instance of nview with your attached instance a
 
 ### This is for example an NView wrapped around a player:
 Server
-```luau
+```lua
 local TargetPlayer = game.Players.BrianNovius
 local PlayerView = NView.new(TargetPlayer)
 
