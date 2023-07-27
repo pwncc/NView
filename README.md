@@ -33,6 +33,20 @@ myPlayer.ValueChanged:Connect(function(valueName, newValue, lastValue)
 end)
 ```
 
+## Setup
+Make sure you have the NexusInstance folder somewhere in replicatedStorage. If you change it's location, you'll have to change it in NView.lua so it can be required properly.
+Signal is currently required from the Packages folder because it was downloaded via wally. If you get signal from anywhere else, please also change it in NView.lua
+
+After having all the dependencies in place, you can go to NView.lua and change anything in the config section.
+
+**Note: If you want to make use of the DataFolder you'll have to write your own way to detect these new NView's on the client.**
+You can detect new instanceless NViews by doing for example:
+```lua
+ReplicatedStorage.NViews.ChildAdded:Connect(function(Folder)
+    local newNView = NView.new(Folder)
+end)
+```
+
 ## [WHY?]
 I personally use NView to avoid using up remote calls, as well as avoiding the need to sync data to players that joined a new server. For example, if we have a Gun class with information such as Ammo and StoredAmmo, a newly joined client can simply get this information from the NView instead of having to ask the server for it. This is great for moments where a newly joined client wants to pick up a gun from another client.
 
