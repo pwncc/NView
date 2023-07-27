@@ -28,9 +28,11 @@ local myView = NView.new(myPlayer)
 
 myPlayer.ValueChanged:Connect(function(valueName, newValue, lastValue)
     if valueName == "Health" then
-        print("damn man")
+        print("My health changed to: "..newValue)
     end
 end)
+
+print("My health now is: "..myView.Health)
 ```
 
 ## Setup
